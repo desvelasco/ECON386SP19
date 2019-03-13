@@ -11,6 +11,11 @@ pairs(mtcars[1:4]) #look at only the first 4 variables in the pairwise plot
 
 MODEL0<-lm(mpg~hp, mtcars)  ##simple univariate model: mpg=B_0+B_1*hp+u
 summary(MODEL0)  ##summarize model results
+
+##we could also manually compute the coefficients for the univariate input case
+B_1<-cov(mtcars$mpg,mtcars$hp)/var(mtcars$hp)
+B_0<-mean(mtcars$mpg)-B_1*mean(mtcars$hp)
+
 MODEL1<-lm(mpg~0+hp,mtcars) ##regression through the origin (no intercept term!)
 summary(MODEL1)
 
