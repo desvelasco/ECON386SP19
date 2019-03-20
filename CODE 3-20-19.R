@@ -1,3 +1,4 @@
+##################################
 ######PART I:  SIMULATION#########
 ######CODE 3-20-19.R##############
 ##################################
@@ -47,13 +48,11 @@ M1<-lm(y_data~x_data, df1)  ##estimate linear model
 summary(M1)
 abline(M1$coefficients[1],M1$coefficients[2], col='blue')
 
-###########################################################################
-###USING THE GGPLOT2 PACKAGE TO BUILD A NICE HISTOGRAM TO COMPARE GROUPS###
-###########################################################################
 
 #################################################################
 ####Part II:  using the ggplot2 package implementation ##########
 #################################################################
+
 ##need to install these packages before running libraries
 library(plyr)  ##adds the plyr library which is useful for data manipulation
 library(ggplot2)  ##adds the ggplot2 library package (different system than the BASE package)
