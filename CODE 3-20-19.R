@@ -1,3 +1,16 @@
+##MOBLAB #8 SOLUTIONS##
+#1) 
+mean(mtcars$mpg[mtcars$am==1])-mean(mtcars$mpg[mtcars$am==0])
+#2) mpg=beta*am
+Model1<-lm(mpg~0+am,mtcars)
+summary(Model1)
+#3) mpg=beta_0+beta_1*am
+Model2<-lm(mpg~am,mtcars)
+summary(Model2)
+#4) mpg=beta_0+beta_2*am+beta_3*wt
+Model3<-lm(mpg~am+wt,mtcars)
+summary(Model3)
+
 ##################################
 ######PART I:  SIMULATION#########
 ######CODE 3-20-19.R##############
@@ -5,7 +18,7 @@
 
 ##to simulate 100 draws from the standard normal distribution:
 sample1<-rnorm(n=100, mean=0, sd=1)  
-
+?rnorm
 ##plot histogram
 hist(sample1, breaks = 30, prob = TRUE, xlim=c(-4,4), ylim=c(0,.7))
 
@@ -26,13 +39,16 @@ pnorm(1,0,1)-pnorm(-1,0,1)  ## P(X is within 1 sd of the mean)
 pnorm(2,0,1)-pnorm(-2,0,1)  ## P(X is within 2 sd of the mean)
 pnorm(3,0,1)-pnorm(-3,0,1)  ## P(X is within 2 sd of the mean)
 
-
+################################################
 ###simulating a DGP for regression estimation###
+################################################
 
 ##sample the error term
-n=100000 ##sample size
+set.seed(1234)  ##locks in a particular set of random numbers
+n=100 ##sample size
 sigma=1  ##error standard deviation
 e<-rnorm(n,0,sigma)  ##draws normally distributed error
+View(e)
 x_data<-runif(n,-1,1)  ##generates synthetic x (input) data
 B_0=3  ##population intercept term
 B_1=1/2  ##population slope term
